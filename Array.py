@@ -1,7 +1,12 @@
-scores = list(map(int, input("Enter scores separated by space: ").split()))
+import sys
+
+scores = list(map(int, sys.argv[1:])) if len(sys.argv) > 1 else list(map(int, input("Enter scores separated by space: ").split()))
+
+if not scores:
+    raise ValueError("Enter at least one score")
 
 total = sum(scores)
 average = total / len(scores)
 
-print("Sum of scores:", total)
-print("Average of scores:", average)
+print("Sum:", total)
+print("Average:", average)
